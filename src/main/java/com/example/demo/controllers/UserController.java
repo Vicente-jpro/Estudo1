@@ -43,7 +43,7 @@ public class UserController {
 		return new ResponseEntity<User>(userService.create(user), HttpStatus.OK);
 	}
 	
-	@DeleteMapping( value = "/delete/{id}")
+	@DeleteMapping( value = "/delete/{id}", produces = "application/json")
 	public ResponseEntity<User> delete(@PathVariable("id") Long id){
 		userService.delete(id);
 		return new ResponseEntity<User>( HttpStatus.OK);
