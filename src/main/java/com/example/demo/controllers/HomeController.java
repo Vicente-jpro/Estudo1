@@ -1,11 +1,11 @@
-package com.example.demo.controller;
+package com.example.demo.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/home")
+@RequestMapping("/")
 public class HomeController {
 	
 	@GetMapping(value = "/", produces = "application/json")
