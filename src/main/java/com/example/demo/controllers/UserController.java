@@ -39,7 +39,7 @@ public class UserController {
 	}
 	
 	@GetMapping( value = "/get/{id}", produces = "application/json")
-	public ResponseEntity<User> getUser(@RequestBody Long id){
+	public ResponseEntity<User> getUser(@PathVariable("id") Long id){
 		return new ResponseEntity<User>(userService.getUser(id), HttpStatus.OK);
 	}
 	
