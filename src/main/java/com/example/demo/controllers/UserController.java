@@ -38,6 +38,11 @@ public class UserController {
 		return new ResponseEntity<List<User>>(userService.read(), HttpStatus.OK);
 	}
 	
+	@GetMapping( value = "/get/{id}", produces = "application/json")
+	public ResponseEntity<User> getUser(@RequestBody Long id){
+		return new ResponseEntity<User>(userService.getUser(id), HttpStatus.OK);
+	}
+	
 	@PutMapping( value = "/add", produces = "application/json")
 	public ResponseEntity<User> update(@RequestBody User user){
 		return new ResponseEntity<User>(userService.create(user), HttpStatus.OK);
