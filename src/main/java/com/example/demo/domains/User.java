@@ -7,11 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,13 +22,16 @@ public class User {
 	private Long id;
 	private String name;
 	private String age;
+//	
+//	@JsonManagedReference
+//	@ManyToMany( cascade = CascadeType.ALL)
+//	@JoinTable(
+//		name = "user_courses",
+//		joinColumns ={ @JoinColumn( name = "user_id", referencedColumnName = "id") },
+//		inverseJoinColumns = { @JoinColumn(name = "course_id", referencedColumnName = "id")}
+//	)
 	
-	@ManyToMany
-	@JoinTable(
-		name = "user_courses",
-		joinColumns ={ @JoinColumn( name = "user_id") },
-		inverseJoinColumns = { @JoinColumn(name = "course_id")}
-	)
-	List<Course> courses = new ArrayList<Course>();
+	@OneToMany( mappedBy = "user")
+	List<UserCourse> userCourses = new ArrayList<UserCourse>();
 	
 }
